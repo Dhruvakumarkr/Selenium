@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="DhruvAcedemy.BaseTest.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="Submit Order Test">
+    <classes>
+      <class name="DhruvAcedemy.SeleniumFrameworkDesign.MainTest"/>
+    </classes>
+  </test> <!-- Submit Order Test -->
+  <test thread-count="5" name="Error Validation Test">
+    <classes>
+      <class name="DhruvAcedemy.SeleniumFrameworkDesign.ErrorValidationTest"/>
+    </classes>
+  </test> <!-- Error Validation Test -->
+  <test parallel="tests" name="Error Validation Test(failed)">
+    <classes>
+      <class name="DhruvAcedemy.SeleniumFrameworkDesign.ErrorValidationTest">
+        <methods>
+          <include name="closing"/>
+          <include name="launchApplication"/>
+          <include name="productErrorValidation"/>
+        </methods>
+      </class> <!-- DhruvAcedemy.SeleniumFrameworkDesign.ErrorValidationTest -->
+      <class name="DhruvAcedemy.SeleniumFrameworkDesign.MainTest">
+        <methods>
+          <include name="closing"/>
+          <include name="launchApplication"/>
+        </methods>
+      </class> <!-- DhruvAcedemy.SeleniumFrameworkDesign.MainTest -->
+    </classes>
+  </test> <!-- Error Validation Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
